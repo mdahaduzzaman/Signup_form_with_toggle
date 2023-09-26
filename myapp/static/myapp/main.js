@@ -1,5 +1,5 @@
-let form = document.querySelector('form')
-
+let form = document.querySelector('.form')
+ 
 let isSupplier = document.getElementById('isSupplier')
 
 let visibleField = document.getElementById('visibleField')
@@ -17,5 +17,19 @@ isSupplier.addEventListener('click', () => {
         setTimeout(()=>{
             visibleField.style.display = 'none'; // Hide the tin element
         }, 500)
+    }
+});
+
+form.addEventListener('submit', event => {
+    event.preventDefault();
+    password1 = document.getElementById('password1')
+    password2 = document.getElementById('password2')
+
+    if(password1.value != password2.value){
+        const div = document.querySelector('.repeatPassword')
+        div.innerText = "Password did not match!"
+        password2.value = ''
+    }else{
+        alert("Match", password1.value, password2.value)
     }
 });
